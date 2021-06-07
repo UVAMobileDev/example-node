@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVA Cost of Attendance</title>
+</head>
+<body>
+    <script src = app.js></script> 
+    <script src = https://unpkg.com/papaparse@5.3.1/papaparse.min.js></script>
+    <script>
+     var tuitionData = [];
+     Papa.parse('Tuition.csv',{
+         delimiter:',',
+         download: true,
+         header: true,
+         complete: function(results, file){
+             console.log(results.data);
+             for(i = 0; i < 26; i++){
+                 tuitionData.push(results.data[i]);
+             }
+         }
+     });
+     console.log(tuitionData)
+   </script>
+    <script src=app.js></script>
+    <h1>Cost of Attendance</h1>
+    <!-- Samarth - School -->
+    <p>Please Select Your School:</p>
+   <script src = app.js></script> 
+   <script src = https://unpkg.com/papaparse@5.3.1/papaparse.min.js></script>
+   <script>
+    var tuitionData = [];
+    Papa.parse('Tuition.csv',{
+        delimiter:',',
+        download: true,
+        header: true,
+        complete: function(results, file){
+            console.log(results.data);
+            for(i = 0; i < 26; i++){
+                tuitionData.push(results.data[i]);
+            }
+        }
+    });
+    console.log(tuitionData)
+  </script>
+    <form action="/submit" method="POST">
+   <h1>Cost of Attendance</h1>
+   <!-- Samarth - School -->
+   <p>Please Select Your School:</p>
+    <div class="select" style="width:425px;">
+        <select name = "school" id = "school" onChange = "setSchoolValue()">
+            <option selected>Select School</option>
+            <option value="1">College of Arts and Sciences</option>
+            <option value="2">School of Architecture</option>
+            <option value="3">School of Education and Human Development</option>
+            <option value="4">School of Commerce (McIntire)</option>
+            <option value="5">School of Engineering and Applied Science</option>
+            <option value="6">School of Leadership and Public Policy (Batten)</option>
+            <option value="7">School of Nursing</option>
+        </select>
+  </div>
+   <!-- Geetanjali - Year -->
+   <p>Please Select Your Year of Enrollment:</p>
+    <div class="select" style="width:425px;">
+        <select name = "year" id = "year" onChange = "setYearValue()">
+            <option selected>Select Year</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+            <option value="3">Third</option>
+            <option value="4">Fourth</option>
+        </select>
+  </div>
+</div>
+<!--Amshala-In State/Out of State-->
+<p>Please Select Your Residency Status: </p>
+ <div class="select" style="width:425px;">
+     <select name = "residency" id = "residency" onChange = "setResidencyValue()">
+         <option selected>Select Virginian or Non-Virginian</option>
+         <option value="1">Virginian</option>
+         <option value="2">Non-Virginian</option>
+     </select>
+</div>
+
+   <!-- Samarth - Books + Supplies -->
+   <p>Books and Supplies Estimate:</p>
+    <div class="select" style="width: 425px;">
+        <select name = "books" id = "books" onChange = "setBooksValue()">
+            <option value="0">Select Books and Supplies</option>
+            <option value="1">UVA Official Recomendation</option>
+            <option value="2">Custom Input</option>
+        </select>
+  </div>
+      
+  <br></br>
+  <!--Custom Books and Supplies Expenses-->
+  <label for="fname">Custom Books and Supplies Expenses: </label>
+  <input type="text" id="suppliesbox" name="suppliesbox" onchange="customSuppliesActivated()" disabled><br><br>
+
+   <!-- Samarth - Travel, also the header for this def needs to change, is there information on how UVA computed this cost?-->
+   <p>Please select the region that contains your home state to use UVA's estimated travel cost for the selected region. (If international, please select custom input).</p>
+    <div class="select" style="width: 425px;">
+        <select name = "travel" id = "travel" onChange = "setTravelValue()">
+            <option value="0">Select Region</option>
+            <option value="1">Region 1: DC, VA</option>
+            <option value="2">Region 2: DE, NY, PA</option>
+            <option value="3">Region 3: MD, NC, SC, WV</option>
+            <option value="4">Region 4: AR, IL, IA, KS, LA, MN, MO, MT, NE, ND, OK, SD, TX, WI</option>
+            <option value="5">Region 5: AL, CT, FL, GA, ME, MA, MS, NH, NJ, PR, RI, TN, VT, VI</option>
+            <option value="6">Region 6: IN, KY, MI, OH</option>
+            <option value="7">Region 7: AZ, CO, ID, NV, NM, UT, WY</option>
+            <option value="8">Region 8: AK, CA, HI, WA, OR</option>
+            <option value="9">Custom Input</option>
+        </select>
+    </div>
+
+    <br></br>
+    <!--Custom Travel Expenses-->
+    <label for="fname">Custom Travel Expenses: </label>
+    <input type="text" id="travelbox" name="travelbox" onchange="customTravelActivated()" disabled><br><br>
+
+
+    <!--Kevin-Dining-->
+    <p>Dining Cost Estimate:. </p>
+     <div class="select" style="width:425px;">
+         <select name = "dining" id = "dining" onChange = "setDiningValue()">
+             <option value="0">Select Dining Option</option>
+             <option value="1">Meal Plan</option>
+             <option value="2">Custom Input</option>
+         </select>
+   </div>
+
+   <br></br>
+   <!--Custom Dining Expenses-->
+   <label for="fname">Custom Dining Expenses: </label>
+   <input type="text" id="diningbox" name="diningbox" onchange="customDiningActivated()" disabled><br><br>
+
+<!--Misc. Expenses-->
+<p>Misc. Expenses:. </p>
+<label for="fname">Custom Misc. Expenses: </label>
+<input type="text" id="miscbox" name="miscbox" onchange="customMiscActivated()"><br><br>
+
+
+<input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

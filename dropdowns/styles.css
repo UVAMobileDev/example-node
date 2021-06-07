@@ -1,0 +1,55 @@
+.select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat 98.5% !important; /* !important used for overriding all other customisations */
+    background: url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") white no-repeat calc(100% - 10px) !important; /* Better placement regardless of input width */
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border:1px solid black;
+    border-radius:10px;
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-size: 16px;
+    color: #666;
+    font-size: 18px;
+    background-color: white;
+}
+.select {
+    position: relative;
+    display: block;
+    width: 15em;
+    height: 2em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+    padding-bottom:10px;
+}
+
+.select::after{
+    background: none;
+    background-image: none;
+}
+
+p{
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-size: 22px;
+    color:#232D4B;
+}
+
+label{
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-size: 18px;
+    color: #666;
+}
+
+input[type=submit]{
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-family: "ITC Franklin Gothic LT W01 Bk", Arial, sans-serif;
+    font-size: 24px;
+    color: white;
+    background-color:navy;
+    border-radius: 12px;
+}
